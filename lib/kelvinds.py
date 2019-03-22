@@ -68,18 +68,11 @@ def farm(farm_times):
         i += 1
 
 
-if __name__ == "__main__":
+def start():
     while True:
         try:
-            print("[Farm] Iniciando. Dando tempo para organização.")
-            time.sleep(3)
-
-            print("[Farm] Começando.")
             farm(80)
-            break
         except KeyboardInterrupt:
-            print("[Keyboard Interrupt] Saindo.")
             break
         except pyautogui.FailSafeException:
-            print("[FailSafe Exception] Saindo.")
             break

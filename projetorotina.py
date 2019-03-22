@@ -21,3 +21,4 @@ if __name__ == '__main__':
 
     time.sleep(3)
     main.execute_farms()
+    print('A rotina finalizou, aproveite seu money :) veja o quanto ganhou usando /money.')
