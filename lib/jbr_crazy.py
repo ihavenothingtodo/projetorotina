@@ -1,36 +1,29 @@
 import pyautogui
 import time
+from lib.utils import variables
+from lib.utils import functions
 
 pyautogui.FAILSAFE = True
-
-sell_sleep = 4 + 6
-buy_sleep = 4 + 6
-
-def backToStore():
-    pyautogui.press("t")
-    pyautogui.press("up")
-    pyautogui.press("up")
-    pyautogui.press("enter")
 
 
 def buy(n):
     i = 0
     while i < n:
         pyautogui.keyDown("a")
-        time.sleep(.05)
+        time.sleep(variables.one_block)
         pyautogui.keyUp("a")
         pyautogui.click(button='right')
         i += 1
 
 
 def sell():
-    backToStore()
-    time.sleep(sell_sleep)
+    functions.command_above(2)
+    time.sleep(variables.sell_sleep)
     pyautogui.click()
 
 
 def farm(repetitions):
-    i = 3
+    i = 0
     while i < repetitions:
         print("[Farm] Iniciando processo nº " + str(i) + ".")
         # Passos para a compra de cactos na loja do Jbr_Crazy
@@ -48,9 +41,9 @@ def farm(repetitions):
 
         # Abaixar a visão
         print("[Farm] Procurando os baús inferiores.")
-        if i < 20:
+        if i < 28:
             pyautogui.moveRel(yOffset=200)
-        elif i > 30:
+        elif i > 38:
             pyautogui.moveRel(yOffset=-170)
 
         # Comprar
@@ -62,9 +55,9 @@ def farm(repetitions):
         sell()
 
         # Voltar para a loja
-        backToStore()
+        functions.command_above(2)
         i += 1
-        time.sleep(buy_sleep)
+        time.sleep(variables.buy_sleep)
 
 
 if __name__ == "__main__":
