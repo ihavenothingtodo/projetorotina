@@ -1,4 +1,6 @@
 import sys
+from lib import main
+import time
 
 if __name__ == '__main__':
     print('###########################')
@@ -9,11 +11,13 @@ if __name__ == '__main__':
 
     print('Atualmente temos: \n*Farm de Blaze Rod \n*Farm de Cacto (revenda) em 2 lojas.')
 
-    if len(sys.argv) > 1 and sys.argv[1] != 'start':
-        while True:
-            user_input = input('')
-            if user_input.lower() == 'start':
-                break
-            elif user_input.lower() == 'exit':
-                print('Saindo do sistema.')
-                sys.exit(0)
+    while True:
+        user_input = input('')
+        if user_input.lower() == 'start':
+            break
+        elif user_input.lower() == 'exit':
+            print('Saindo do sistema.')
+            sys.exit(0)
+
+    time.sleep(3)
+    main.execute_farms()

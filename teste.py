@@ -1,5 +1,7 @@
-import numpy as np
+i = 10
+j = 0
 
-t = np.random.uniform(low=0.0, high=1.0, size=1) * 10
+if i % 2 == 0 and i != 0:
+    j += 1
 
-print(t[0])
+print(j)
